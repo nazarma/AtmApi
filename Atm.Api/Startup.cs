@@ -30,10 +30,9 @@ namespace Atm.Api
         {
             services.AddMediatR(typeof(LeastItemsRequest).Assembly);
             services.AddAutoMapper(typeof(LeastItemsRequest).Assembly);
-
             services.AddMvc()
-                .AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<LeastNumberRequestValidator>())
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+                .AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<LeastItemsRequest>())
+                .SetCompatibilityVersion(CompatibilityVersion.Latest);
 
             services.AddScoped<ICashService, CashService>();
             services.AddScoped<ILegalTenderRepo, LegalTenderRepo>();
